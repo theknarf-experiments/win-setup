@@ -6,16 +6,21 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManage
 # Install the rest of the software
 choco install -y `
 	sql-server-express `
+	sqllocaldb `
 	sql-server-management-studio `
 	dotnetcore-sdk `
 	nodejs `
 	git `
 	GoogleChrome `
-	vscode
+	vscode `
+	yarn
 
 # Install Scope package manager
 # This will be used to install command line tools that Chocolatly don't have
 # Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://get.scoop.sh')
+
+# Install dotnet dependencies
+dotnet tool install --global dotnet-ef
 
 # Setup norwegian keyboard layout
 Set-WinUserLanguageList -LanguageList nb-NO -Force
